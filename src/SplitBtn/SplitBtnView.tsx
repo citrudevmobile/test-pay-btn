@@ -5,5 +5,11 @@ export interface SplitBtnViewProps {
 }
 
 export default React.memo<SplitBtnViewProps>(()=> {
-  return <div> <div style={{ backgroundColor: "pink", display: "inline", margin: "10px" }}>{"< P >"}</div> <div style={{ backgroundColor: "pink", display: "inline", margin: "10px" }}>{"< B >"}</div> </div>;
+  return <div> <div onClick={()=>{
+      console.log("paypal button pressed")
+    }} style={{ backgroundColor: "pink", display: "inline", margin: "1px" }}>{"< P >"}</div> 
+  
+  <div onClick={()=>{
+      console.log("bitcoin button pressed")
+    }} style={{ backgroundColor: "pink", display: "inline", margin: "1px" }}>{"< B >"}</div> </div>;
 });

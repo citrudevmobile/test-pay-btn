@@ -5,5 +5,7 @@ export interface PayBtnViewProps {
 }
 
 export default React.memo<PayBtnViewProps>(function PayBtn() {
-  return <div style={{ backgroundColor: "pink" }}>{"< PAY >"}</div>;
+  return <div style={{ backgroundColor: "pink" }} onClick={()=>{
+      console.log("okay this works next move")
+  }}>{"< PAY >"}</div>;
 });
