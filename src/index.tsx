@@ -5,10 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import allReducers from './Reducers'
+
+let appStore = createStore(allReducers)
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={appStore}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
