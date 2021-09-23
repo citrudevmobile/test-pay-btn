@@ -1,5 +1,4 @@
 import uuid from "uuid";
-
 import * as Schema from "./Schema";
 
 export const selectInvoice =
