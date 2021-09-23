@@ -5,5 +5,5 @@ export interface SplitBtnViewProps {
 }
 
 export default React.memo<SplitBtnViewProps>(()=> {
-  return <div style={{ backgroundColor: "pink" }}>{"< P >"}</div> <div style={{ backgroundColor: "pink" }}>{"< B >"}</div>;
+  return <div> <div style={{ backgroundColor: "pink" }}>{"< P >"}</div> <div style={{ backgroundColor: "pink" }}>{"< B >"}</div> </div>;
 });
