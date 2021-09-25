@@ -8,7 +8,7 @@ export interface LoadingBtnViewProps {
 export default React.memo<LoadingBtnViewProps>((props)=> {
     
   return ( 
-    <div style={{backgroundColor: "pink", display: props.showLoading }} >{"< Loading.... >"}</div>
+    <div style={{backgroundColor: "pink", display: props.showLoading }} >{" Loading.... "}</div>
  );
 
 });

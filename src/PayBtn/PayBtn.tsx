@@ -28,11 +28,17 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
     const paypal = () => {
         setShowSplitBtn('none')
         setShowLoading('block')
+        setTimeout(()=>{
+           setShowLoading('none') 
+        },5000)
     }
 
     const bitcoin = () => {
         setShowSplitBtn('none')
         setShowLoading('block')
+        setTimeout(()=>{
+           setShowLoading('none') 
+        },5000)
     }
 
   return  ( 
