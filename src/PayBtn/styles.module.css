@@ -9,8 +9,10 @@
 
 .textbox {
     display: inline;
+    height: 30px;
 }
 
 .paybtn {
     display: inline;
+    height: 30px;
 }

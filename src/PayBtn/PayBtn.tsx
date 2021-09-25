@@ -33,6 +33,9 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
         setTimeout(()=>{
            setShowLoading('none') 
            setShowPayTextbox('block')
+           setTimeout(() => {
+               
+           }, 10000)
         },4000)
     }
 
@@ -42,6 +45,9 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
         setTimeout(()=>{
            setShowLoading('none') 
            setShowPayTextbox('block')
+           setTimeout(() => {
+
+           }, 10000)
         },4000)
     }
 
