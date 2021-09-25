@@ -1,4 +1,4 @@
-import uuid from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 import * as Schema from "./Schema";
 
 export const selectInvoice =
@@ -6,7 +6,7 @@ export const selectInvoice =
   (state: any): Schema.Invoice | null => {
     if (Math.random() > 0.5) {
       return {
-        data: uuid.v1(),
+        data: uuidv4(),
         expiryTime: 90000,
         id,
       };

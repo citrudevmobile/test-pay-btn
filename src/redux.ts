@@ -1,5 +1,5 @@
-export const useSelector = <T>(selector: (...args: any[]) => T): T => {
+export const euseSelector = <T>(selector: (...args: any[]) => T): T => {
   return selector();
 };
 
-export const useDispatch = () => () => {};
+export const euseDispatch = () => () => {};

@@ -18,7 +18,7 @@ export default React.memo<payTextboxProps>((props)=> {
 
             <input className={Classes.paybtn} type="button" value="Pay"/>
 
-            <p style="font-size: 10px; ">"will expire in 10 seconds"</p>
+            <p>will expire in 10 seconds</p>
             </div>
  );
 
