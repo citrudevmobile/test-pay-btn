@@ -1,25 +1,30 @@
 import React from "react";
-import 
 //import { callbackify } from "util";
+import SplitBtn from "../SplitBtn";
 
 export interface PayBtnViewProps {
   // Fill here
-  callback: () => void
 }
 
 export default React.memo<PayBtnViewProps>(function PayBtn(props) {
 
-    const [showPayBtn, setShowPayBtn] = React.useState("block")
-    const [] = React.useState()
+    const [showPayBtn, setShowPayBtn] = React.useState('block')
 
     const payBtnClicked = () => {
-        setShowPayBtn("none")
+        setShowPayBtn('none')
     }
 
-    const 
+    const renderSplitBtn = () => {
+        return showPayBtn == "none" ? <SplitBtn /> : null
+    }
 
   return (
-    <div style={{backgroundColor: "pink", display: showPayBtn }} onClick={payBtnClicked}>{"< PAY >"}</div>
 
+    <div style={{backgroundColor: "pink", display: showPayBtn }} onClick={payBtnClicked}>
+        {"< PAY >"}
+    </div>
+    <SplitBtn />
+    
   ); 
+
 });
