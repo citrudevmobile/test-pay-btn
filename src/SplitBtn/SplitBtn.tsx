@@ -13,14 +13,9 @@ export interface SplitBtnProps {
 }
 
 export default React.memo<SplitBtnProps>(function PayBtn(props) {
-    function paypal () {
+  return (
 
-        props.loadnext()
-    }
-
-    function bitcoin () {
-
-        props.loadnext()
-    }
-  return <SplitBtnView show={props.show} paypal={paypal} bitcoin={bitcoin}/>;
+  <SplitBtnView />
+  
+  );
 });
