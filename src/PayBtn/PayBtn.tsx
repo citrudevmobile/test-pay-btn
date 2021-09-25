@@ -11,13 +11,12 @@ import SplitButton from "../SplitBtn"
 export interface PayBtnProps {
   amount: number;
   userID: string;
-  callback: () => void;
 }
 
 export default React.memo<PayBtnProps>(function PayBtn(props) {
+    
     function callToRedux () {
         console.log("calling redux....")
-        props.callback()
     }
-  return <PayBtnView callback={callToRedux}/>;
+  return <PayBtnView />;
 });
