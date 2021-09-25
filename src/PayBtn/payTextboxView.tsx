@@ -9,7 +9,7 @@ export default React.memo<payTextboxProps>((props)=> {
     
   return ( 
     <div style={{display: props.showPayTextbox }} >
-      
+      show textbox here...
     </div>
  );
 
