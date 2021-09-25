@@ -6,11 +6,6 @@ export interface SplitBtnViewProps {
 }
 
 export default React.memo<SplitBtnViewProps>((props)=> {
-    const [showElement, setShowElement] = React.useState("none")
-    
-    React.useEffect(() => {
-        setShowElement('block')
-    }, [props.show]);
     
   return ( 
     <div>
@@ -20,6 +15,6 @@ export default React.memo<SplitBtnViewProps>((props)=> {
         <div style={{ backgroundColor: "pink", display: "inline", margin: "1px" }} >{"< B >"}</div>
 
    </div>
- 
- )
+ );
+
 });
