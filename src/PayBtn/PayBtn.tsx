@@ -30,7 +30,7 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
         setShowLoading('block')
         setTimeout(()=>{
            setShowLoading('none') 
-        },5000)
+        },4000)
     }
 
     const bitcoin = () => {
@@ -38,7 +38,7 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
         setShowLoading('block')
         setTimeout(()=>{
            setShowLoading('none') 
-        },5000)
+        },4000)
     }
 
   return  ( 
