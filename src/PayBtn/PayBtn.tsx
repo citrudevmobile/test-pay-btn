@@ -23,8 +23,8 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
     const [showLoading, setShowLoading] = React.useState('none')
     const [showPayTextbox, setShowPayTextbox] = React.useState('none')
 
-    const counter = useSelector(state => state.counter)
-    const currentUser = useSelector(state => state.currentUser)
+    
+    
 
     const dispatch = useDispatch()
 
@@ -34,6 +34,10 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
     }
 
     const paypal = () => {
+
+        dispatch(fetchInvoiceFrom(refreshPaypalInfo(props.userID)));
+        const paypalInfo = useSelector(selectPaypalInfo(props.userID));
+        console.log(paypalInfo)
         setShowSplitBtn('none')
         setShowLoading('block')
         setTimeout(()=>{
@@ -42,11 +46,16 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
            setTimeout(() => {
                
            }, 10000)
-        },4000)
-        dispatch(fetchInvoiceFrom(refreshPaypalInfo(props.userID)))
+        },4000);
+
+       
     }
 
     const bitcoin = () => {
+        
+        dispatch(fetchInvoiceFrom(props.userID, props.amount, uuid.v4());
+        const Invoice = useSelector(selectInvoice(props.userID));
+        console.log(Invoice)
         setShowSplitBtn('none')
         setShowLoading('block')
         setTimeout(()=>{
@@ -56,7 +65,8 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
 
            }, 10000)
         },4000);
-        dispatch(fetchInvoiceFrom(props.userID, props.amount, uuid.v4());
+        
+        
     }
 
   return  ( 
