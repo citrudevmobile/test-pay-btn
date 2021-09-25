@@ -39,7 +39,7 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
     <div>
         <PayBtnView payBtnClicked={payBtnClicked} showPayBtn={showPayBtn}/> 
         <SplitBtnView showSplitBtn={showSplitBtn} paypal={paypal} bitcoin={bitcoin}/> 
-        <ShowLoading showLoading={showLoading}>
+        <ShowLoading showLoading={showLoading}/>
     </div>
   );
 });
