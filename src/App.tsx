@@ -3,8 +3,6 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import PayBtn from "./PayBtn";
-import SplitBtn from "./SplitBtn";
-
 
 function App() {
 
@@ -13,7 +11,6 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
          <PayBtn amount={100} userID="jkahsdjkahjksdh" />
-         <SplitBtn />
       </header>
     </div>
   );

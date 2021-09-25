@@ -6,6 +6,7 @@ import { selectInvoice, selectPaypalInfo } from "../selectors";
 import { fetchInvoiceFrom } from "../actions";
 
 import PayBtnView from "./PayBtnView";
+import SplitButton from "../SplitBtn"
 
 export interface PayBtnProps {
   amount: number;

@@ -1,4 +1,5 @@
 import React from "react";
+import 
 //import { callbackify } from "util";
 
 export interface PayBtnViewProps {
@@ -7,11 +8,18 @@ export interface PayBtnViewProps {
 }
 
 export default React.memo<PayBtnViewProps>(function PayBtn(props) {
-    const [showElement, setShowElement] = React.useState("block")
-    const onClick = () => {
-        setShowElement("none")
-        props.callback()
+
+    const [showPayBtn, setShowPayBtn] = React.useState("block")
+    const [] = React.useState()
+
+    const payBtnClicked = () => {
+        setShowPayBtn("none")
     }
 
-  return <div style={{backgroundColor: "pink", display: showElement }} onClick={onClick}>{"< PAY >"}</div>;
+    const 
+
+  return (
+    <div style={{backgroundColor: "pink", display: showPayBtn }} onClick={payBtnClicked}>{"< PAY >"}</div>
+
+  ); 
 });
