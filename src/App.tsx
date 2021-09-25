@@ -7,10 +7,12 @@ import SplitBtn from "./SplitBtn";
 
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+         <PayBtn amount={100} userID="jkahsdjkahjksdh" />
          <SplitBtn />
       </header>
     </div>

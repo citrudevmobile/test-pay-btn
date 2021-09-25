@@ -10,13 +10,15 @@ import PayBtnView from "./PayBtnView";
 export interface PayBtnProps {
   amount: number;
   userID: string;
-  callback: () => void;
+  callBack: () => void;
 }
 
 export default React.memo<PayBtnProps>(function PayBtn(props) {
+    
     function callToRedux () {
         console.log("calling redux....")
-        props.callback()
+        props.callBack()
     }
-  return <PayBtnView callback={callToRedux}/>;
+
+  return <PayBtnView callback={callToRedux} />;
 });

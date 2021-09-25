@@ -8,9 +8,19 @@ import { fetchInvoiceFrom } from "../actions";
 import SplitBtnView from "./SplitBtnView";
 
 export interface SplitBtnProps {
-  
+  show: boolean;
+  loadnext: () => void
 }
 
-export default React.memo<SplitBtnProps>(function PayBtn() {
-  return <SplitBtnView />;
+export default React.memo<SplitBtnProps>(function PayBtn(props) {
+    function paypal () {
+
+        props.loadnext()
+    }
+
+    function bitcoin () {
+
+        props.loadnext()
+    }
+  return <SplitBtnView show={props.show} paypal={paypal} bitcoin={bitcoin}/>;
 });
