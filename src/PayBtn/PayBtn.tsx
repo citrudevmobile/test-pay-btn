@@ -23,7 +23,6 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
     const payBtnClicked = () => {
         setShowPayBtn('none')
         setShowSplitBtn('block')
-        
     }
 
     const paypal = () => {
@@ -34,7 +33,6 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
     const bitcoin = () => {
         setShowSplitBtn('none')
         setShowLoading('block')
-
     }
 
   return  ( 
