@@ -9,13 +9,12 @@ import SplitBtnView from "./SplitBtnView";
 
 export interface SplitBtnProps {
   show: boolean;
-  loadnext: () => void
 }
 
 export default React.memo<SplitBtnProps>(function PayBtn(props) {
   return (
 
   <SplitBtnView />
-  
+
   );
 });

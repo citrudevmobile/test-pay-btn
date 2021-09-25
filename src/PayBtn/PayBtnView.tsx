@@ -15,7 +15,7 @@ export default React.memo<PayBtnViewProps>(function PayBtn(props) {
     }
 
     const renderSplitBtn = () => {
-        return showPayBtn == "none" ? <SplitBtn /> : null
+        
     }
 
   return (
@@ -23,6 +23,8 @@ export default React.memo<PayBtnViewProps>(function PayBtn(props) {
     <div style={{backgroundColor: "pink", display: showPayBtn }} onClick={payBtnClicked}>
         {"< PAY >"}
     </div>
+    
+    <SplitBtn />
     
   ); 
 
