@@ -24,7 +24,8 @@ export default React.memo<PayBtnViewProps>(function PayBtn(props) {
         {"< PAY >"}
     </div>
     
-    <SplitBtn />
+        <SplitBtn></SplitBtn>
+    
     
   ); 
 
