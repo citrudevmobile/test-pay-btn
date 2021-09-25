@@ -3,7 +3,8 @@ import Classes from"./styles.module.css"
 
 export interface payTextboxProps {
   // Fill here
-  showPayTextbox: string
+  showPayTextbox: string;
+  showInfo: string;
 }
 
 export default React.memo<payTextboxProps>((props)=> {
@@ -14,7 +15,7 @@ export default React.memo<payTextboxProps>((props)=> {
 
             <img src="https://via.placeholder.com/50" alt="Avatar" className={Classes.avatar}/>
             
-            <input type="text" className={Classes.textbox} placeholder="testing..."/>
+            <input type="text" className={Classes.textbox} placeholder={props.showInfo}/>
 
             <input className={Classes.paybtn} type="button" value="Pay"/>
 

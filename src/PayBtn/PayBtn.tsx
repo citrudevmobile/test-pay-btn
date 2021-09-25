@@ -34,20 +34,22 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
     const paypal = () => {
 
         //dispatch(refreshPaypalInfo(props.userID));
-        const paypalInfo = euseSelector(selectPaypalInfo(props.userID));
-        console.log(paypalInfo)
+        
         setShowSplitBtn('none')
         setShowLoading('block')
-        setTimeout(()=> {
-                if (paypalInfo == null) {
-                    setTimeout(() => {
-                        setShowLoading('none') 
-                        setShowPayTextbox('block') 
-                        setShowTextboxInfo(paypalInfo.paypalEmail) 
-                    }, 3000)
-                } else {
-                    setShowLoading('none') 
-                    setShowPayTextbox('block')
+        setTimeout(async()=> {
+                while (true) {
+                    let paypalInfo = euseSelector(selectPaypalInfo(props.userID))
+
+                    if (paypalInfo !== null) {
+                    setShowLoading('none') ;
+                    setShowPayTextbox('block');
+                    setShowTextboxInfo(paypalInfo.paypalEmail);
+                    break;
+                } 
+
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                      
                 }
         },4000);
 
@@ -57,19 +59,22 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
     const bitcoin = () => {
 
         //dispatch(fetchInvoiceFrom(props.userID, props.amount, uuidv4()));
-        const Invoice = euseSelector(selectInvoice(props.userID));
-        console.log(Invoice)
+        
         setShowSplitBtn('none')
         setShowLoading('block')
-        setTimeout(()=>{
-            if (Invoice == null) {
-                setTimeout(() => {
-                    setShowLoading('none') 
-                    setShowPayTextbox('block')
-                }, 3000)
-            } else {
-                setShowLoading('none') 
-                setShowPayTextbox('block')
+
+        setTimeout(async()=>{
+            while (true) {
+                const Invoice = euseSelector(selectInvoice(props.userID));
+                console.log(Invoice)
+                if (Invoice !== null) {
+                    setShowLoading('none') ;
+                    setShowPayTextbox('block');
+                    setShowTextboxInfo(Invoice.data);
+                    break;
+                } 
+
+                 await new Promise(resolve => setTimeout(resolve, 1000));
             }
         },4000);
         
@@ -81,7 +86,7 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
         <PayBtnView payBtnClicked={payBtnClicked} showPayBtn={showPayBtn}/> 
         <SplitBtnView showSplitBtn={showSplitBtn} paypal={paypal} bitcoin={bitcoin}/> 
         <ShowLoading showLoading={showLoading}/>
-        <PayTextbox showPayTextbox={showPayTextbox} />
+        <PayTextbox showPayTextbox={showPayTextbox} showInfo={showTextboxInfo}/>
     </div>
   );
 });
