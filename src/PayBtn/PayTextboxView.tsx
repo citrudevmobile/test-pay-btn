@@ -9,7 +9,7 @@ export interface payTextboxProps {
 export default React.memo<payTextboxProps>((props)=> {
     
   return ( 
-      <div>
+
             <div style={{display: props.showPayTextbox }} >
 
             <img src="https://via.placeholder.com/50" alt="Avatar" className={Classes.avatar}/>
@@ -18,10 +18,8 @@ export default React.memo<payTextboxProps>((props)=> {
 
             <input className={Classes.paybtn} type="button" value="Pay"/>
 
+            <p style="font-size: 10px; ">"will expire in 10 seconds"</p>
             </div>
-
-            <div style={{ backgroundColor: "pink", font-size:"10px",  display: props.showPayTextbox }} >{"will expire in 10 seconds"}</div>
-    </div>
  );
 
 });

@@ -5,3 +5,7 @@ export const fetchInvoiceFrom = createAction<{
   id: string;
   userID: string;
 }>("fetchInvoiceFrom");
+
+export const refreshPaypalInfo = createAction<{
+  userID: string;
+}>("refreshPaypalInfo");
