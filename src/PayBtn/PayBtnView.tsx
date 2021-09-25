@@ -1,6 +1,5 @@
 import React from "react";
 ///import { callbackify } from "util";
-import SplitBtn from "../SplitBtn";
 
 export interface PayBtnViewProps {
   // Fill here
