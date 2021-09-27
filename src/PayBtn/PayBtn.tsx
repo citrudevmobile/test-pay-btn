@@ -1,30 +1,59 @@
 import React from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-import { euseDispatch, euseSelector } from "../redux";
+import { useDispatch, useSelector } from "../redux";
 import { selectInvoice, selectPaypalInfo } from "../selectors";
 import { fetchInvoiceFrom,  refreshPaypalInfo} from "../actions";
 
 import PayBtnView from "./PayBtnView";
 import SplitBtnView from "./SplitBtnView";
 import ShowLoading from "./LoadingBtnView";
-import PayTextbox from "./PayTextboxView"
+import PayTextbox from "./PayTextboxView";
 
 export interface PayBtnProps {
   amount: number;
   userID: string;
 }
 
-export default React.memo<PayBtnProps>(function PayBtn(props) {
+export default React.memo<PayBtnProps>(function PayBtn (props) {
 
+    const Invoice = useSelector(selectInvoice(props.userID));
+    const paypalInfo = useSelector(selectPaypalInfo(props.userID))
+    const [showPayBtn, setShowPayBtn] = React.useState('block');
+    const [showSplitBtn, setShowSplitBtn] = React.useState('none');
+    const [showLoading, setShowLoading] = React.useState('none');
+    const [showPayTextbox, setShowPayTextbox] = React.useState('none');
+    const [showTextboxInfo, setShowTextboxInfo] = React.useState('');
+    const [optionChosen, setOptionChosen] = React.useState('');
+    const [invoiceID, setInvoiceID] = React.useState('');
 
-    const [showPayBtn, setShowPayBtn] = React.useState('block')
-    const [showSplitBtn, setShowSplitBtn] = React.useState('none')
-    const [showLoading, setShowLoading] = React.useState('none')
-    const [showPayTextbox, setShowPayTextbox] = React.useState('none')
-    const [showTextboxInfo, setShowTextboxInfo] = React.useState('')
+    React.useEffect(()=> {
+         if (optionChosen === 'bitcoin') { 
+            if (paypalInfo !== null) {
+                setShowTextboxInfo(paypalInfo.paypalEmail)
+                setShowLoading('none')
+                setShowPayTextbox('block')
+                console.log(paypalInfo)
+            } else {
+                //dispatch(refreshPaypalInfo(props.userID));
+            }
+         }
+        
+        if (optionChosen === 'bitcoin') {
+            if (Invoice !== null ) {
+                setShowTextboxInfo(Invoice.data);
+                setShowLoading('none')
+                setShowPayTextbox('block')
+                console.log(Invoice)
+            } else {
+               //dispatch(fetchInvoiceFrom(props.userID, props.amount, invoiceID))
+            }
+        }
+        
+    }, [Invoice, paypalInfo])
 
-    const dispatch = euseDispatch()
+    
+    const dispatch = useDispatch()
 
     const payBtnClicked = () => {
         setShowPayBtn('none')
@@ -32,53 +61,20 @@ export default React.memo<PayBtnProps>(function PayBtn(props) {
     }
 
     const paypal = () => {
-
         //dispatch(refreshPaypalInfo(props.userID));
-        
+        setOptionChosen('paypal')
         setShowSplitBtn('none')
         setShowLoading('block')
-        setTimeout(async()=> {
-                while (true) {
-                    let paypalInfo = euseSelector(selectPaypalInfo(props.userID))
-
-                    if (paypalInfo !== null) {
-                    setShowLoading('none') ;
-                    setShowPayTextbox('block');
-                    setShowTextboxInfo(paypalInfo.paypalEmail);
-                    break;
-                } 
-
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                      
-                }
-        },4000);
-
-       
+        //;
     }
 
     const bitcoin = () => {
-
-        //dispatch(fetchInvoiceFrom(props.userID, props.amount, uuidv4()));
-        
+        setInvoiceID(uuidv4().toString())
+        //dispatch(fetchInvoiceFrom(props.userID, props.amount, invoiceID));
+        setOptionChosen('bitcoin')
         setShowSplitBtn('none')
         setShowLoading('block')
-
-        setTimeout(async()=>{
-            while (true) {
-                const Invoice = euseSelector(selectInvoice(props.userID));
-                console.log(Invoice)
-                if (Invoice !== null) {
-                    setShowLoading('none') ;
-                    setShowPayTextbox('block');
-                    setShowTextboxInfo(Invoice.data);
-                    break;
-                } 
-
-                 await new Promise(resolve => setTimeout(resolve, 1000));
-            }
-        },4000);
-        
-        
+        console.log(invoiceID)
     }
 
   return  ( 
