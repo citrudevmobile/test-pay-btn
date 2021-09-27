@@ -28,7 +28,7 @@ export default React.memo<PayBtnProps>(function PayBtn (props) {
     const [invoiceID, setInvoiceID] = React.useState('');
 
     React.useEffect(()=> {
-         if (optionChosen === 'bitcoin') { 
+         if (optionChosen === 'payapl') { 
             if (paypalInfo !== null) {
                 setShowTextboxInfo(paypalInfo.paypalEmail)
                 setShowLoading('none')
